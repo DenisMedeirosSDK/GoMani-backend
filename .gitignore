@@ -1,4 +1,12 @@
-node_modules
-
-.env
+node_modules/
+coverage/
 .vscode/
+dist/
+tmp/
+!tmp/.gitkeep
+
+.env*
+!.env.example
+
+ormconfig.json
+TestTormconfig.md
