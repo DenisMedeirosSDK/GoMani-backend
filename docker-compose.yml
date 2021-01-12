@@ -1,18 +1,6 @@
 version: '3'
 
 services:
-  api:
-    image: node:fermium-alpine
-    command: npm run dev
-    depends_on:
-      - postgresql-master
-      - mongodb-master
-      - redis-master
-    volumes:
-      - ./:/app
-    networks:
-      - api_network_local
-
   postgresql-master:
     image: 'postgres:latest'
     ports:
@@ -20,9 +8,9 @@ services:
     volumes:
       - 'postgresql_master_data:/bitnami/postgresql'
     environment:
-      - POSTGRESQL_USERNAME=postgres
-      - POSTGRESQL_PASSWORD=w2ERWdQfKnQ2haaadnTjy7mLELYFKufh
-      - POSTGRESQL_DATABASE=gomani
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=w2ERWdQfKnQ2haaadnTjy7mLELYFKufh
+      - POSTGRES_DATABASE=gomani
     networks:
       - api_network_local
 

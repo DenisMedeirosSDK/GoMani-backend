@@ -7,6 +7,7 @@ import ICreateAppointmentDTO from '@modules/appointments/dtos/ICreateAppointment
 import Appointment from '../../infra/typeorm/entities/Appointment';
 import IFindAllInMonthFromProviderDTO from '@modules/appointments/dtos/IFindAllInMonthFromProviderDTO';
 import IFindAllInDayFromProviderDTO from '@modules/appointments/dtos/IFindAllInDayFromProviderDTO';
+import IFindByDateDTO from '@modules/appointments/dtos/IFindByDateDTO';
 
 class FakeAppointmentsRepository implements IAppointmentsRepository {
   private appointments: Appointment[] = [];
@@ -44,8 +45,9 @@ class FakeAppointmentsRepository implements IAppointmentsRepository {
     return appointments;
   }
   public async findbyDate(
-    date: Date,
-    provider_id: string,
+    {
+    date,
+    provider_id}:IFindByDateDTO
   ): Promise<Appointment | undefined> {
     const findAppointment = this.appointments.find(
       appointment =>

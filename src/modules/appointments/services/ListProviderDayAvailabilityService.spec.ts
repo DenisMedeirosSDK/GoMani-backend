@@ -32,9 +32,9 @@ describe('ListProviderDayAvailability', () => {
 
     const availablity = await ListProviderDayAvailability.execute({
       provider_id: 'user',
+      day: 20,
       year: 2020,
       month: 5,
-      day: 20,
     });
 
     expect(availablity).toEqual(
